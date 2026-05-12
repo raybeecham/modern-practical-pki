@@ -51,11 +51,12 @@ PowerShell.
 | --- | --- | --- |
 | [Chapter 1](chapters/01-introduction.md) | Introduction | Ready |
 | [Chapter 2](chapters/02-encoding.md) | Encoding | Ready |
-| Chapter 3 | Keys and key formats | Planned |
-| Chapter 4 | Certificate signing requests | Planned |
-| Chapter 5 | Certificates | Planned |
-| Chapter 6 | Certificate authorities | Planned |
-| Chapter 7 | Revocation | Planned |
+| Chapter 3 | Hashing | Planned |
+| Chapter 4 | Keys and key formats | Planned |
+| Chapter 5 | Certificate signing requests | Planned |
+| Chapter 6 | Certificates | Planned |
+| Chapter 7 | Certificate authorities | Planned |
+| Chapter 8 | Revocation | Planned |
 
 ## Repo Layout
 
@@ -90,4 +91,3 @@ docker compose run --rm pki make demo
 ```
 
 Generated material is written under `lab/`.
-
