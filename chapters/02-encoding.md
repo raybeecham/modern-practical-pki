@@ -91,3 +91,148 @@ URL-safe Base-64, described by RFC 4648, uses:
 Padding with `=` is often omitted or percent-encoded as `%3D`, depending on the
 protocol or application.
 
+## More Practice
+
+These examples make the chapter more concrete.
+
+### Base-64 Padding
+
+Run:
+
+```bash
+echo -n "A" | base64
+echo -n "AB" | base64
+echo -n "ABC" | base64
+echo -n "ABCD" | base64
+```
+
+Expected output:
+
+```text
+QQ==
+QUI=
+QUJD
+QUJDRA==
+```
+
+What this shows:
+
+- `A` is 1 byte, so Base-64 adds `==`.
+- `AB` is 2 bytes, so Base-64 adds `=`.
+- `ABC` is 3 bytes, so no padding is needed.
+- `ABCD` is 4 bytes. The first 3 bytes encode cleanly, then the last 1 byte
+  needs `==`.
+
+Base-64 works in 3-byte groups. Padding only appears at the end.
+
+### Non-Printable Bytes
+
+Create a small binary file:
+
+```bash
+printf '\x48\x65\x6c\x6c\x6f\x00\xff\x0a' > lab/chapter2/weird.bin
+```
+
+Try to display it as text:
+
+```bash
+cat lab/chapter2/weird.bin
+```
+
+You may see something like `Hello` followed by a strange symbol or blank space:
+
+```text
+Hello?
+```
+
+That output is strange because the file contains bytes that are not normal
+printable text.
+
+Now display the same file as hex:
+
+```bash
+xxd lab/chapter2/weird.bin
+```
+
+Expected output:
+
+```text
+00000000: 4865 6c6c 6f00 ff0a                      Hello...
+```
+
+The bytes are:
+
+```text
+48 65 6c 6c 6f = Hello
+00             = null byte
+ff             = non-printable byte
+0a             = newline
+```
+
+The lesson: `cat` tries to show text, but `xxd` shows the actual bytes.
+
+### Encode and Decode Without Changing Bytes
+
+Encode the binary file:
+
+```bash
+base64 lab/chapter2/weird.bin
+```
+
+Expected output:
+
+```text
+SGVsbG8A/wo=
+```
+
+Now save the Base-64 text, decode it, and compare the result:
+
+```bash
+base64 lab/chapter2/weird.bin > lab/chapter2/weird.b64
+base64 -d lab/chapter2/weird.b64 > lab/chapter2/weird.roundtrip.bin
+cmp lab/chapter2/weird.bin lab/chapter2/weird.roundtrip.bin && echo "same bytes"
+```
+
+Expected output:
+
+```text
+same bytes
+```
+
+The lesson: Base-64 changes how bytes are represented. It does not change the
+bytes themselves if you decode it correctly.
+
+### URL-Safe Example
+
+Run:
+
+```bash
+echo -n "???>>>???" | base64
+```
+
+Expected output:
+
+```text
+Pz8/Pj4+Pz8/
+```
+
+The URL-safe version is:
+
+```text
+Pz8_Pj4-Pz8_
+```
+
+The only changes are:
+
+```text
+/ becomes _
++ becomes -
+```
+
+The lesson: URL-safe Base-64 is still Base-64. It just swaps characters that
+can cause problems in URLs or filenames.
+
+## Key Takeaway
+
+Base-64 is not encryption. It does not hide data. It only turns bytes into
+printable text so they are easier to store or transfer.
