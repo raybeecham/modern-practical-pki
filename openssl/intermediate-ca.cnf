@@ -1,0 +1,67 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = $ENV::LAB_DIR/intermediate
+certs             = $dir/certs
+crl_dir           = $dir/crl
+new_certs_dir     = $dir/newcerts
+database          = $dir/index.txt
+serial            = $dir/serial
+crlnumber         = $dir/crlnumber
+certificate       = $dir/certs/intermediate-ca.crt.pem
+private_key       = $dir/private/intermediate-ca.key.pem
+
+default_days      = 397
+default_md        = sha256
+preserve          = no
+unique_subject    = no
+policy            = policy_loose
+name_opt          = ca_default
+cert_opt          = ca_default
+copy_extensions   = copy
+
+default_crl_days  = 7
+crl_extensions    = crl_ext
+
+[ policy_loose ]
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+organizationName        = optional
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
+
+[ req ]
+prompt             = no
+distinguished_name = intermediate_dn
+string_mask        = utf8only
+default_md         = sha384
+
+[ intermediate_dn ]
+C  = US
+O  = Modern Practical PKI Lab
+CN = Modern Practical PKI Issuing CA
+
+[ server_cert_ext ]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = critical,CA:false
+keyUsage               = critical,digitalSignature,keyEncipherment
+extendedKeyUsage       = serverAuth
+crlDistributionPoints  = URI:http://localhost:8080/intermediate-ca.crl.pem
+authorityInfoAccess    = OCSP;URI:http://localhost:8080/ocsp, caIssuers;URI:http://localhost:8080/intermediate-ca.crt.pem
+
+[ client_cert_ext ]
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = critical,CA:false
+keyUsage               = critical,digitalSignature,keyEncipherment
+extendedKeyUsage       = clientAuth
+crlDistributionPoints  = URI:http://localhost:8080/intermediate-ca.crl.pem
+authorityInfoAccess    = OCSP;URI:http://localhost:8080/ocsp, caIssuers;URI:http://localhost:8080/intermediate-ca.crt.pem
+
+[ crl_ext ]
+authorityKeyIdentifier = keyid:always
+

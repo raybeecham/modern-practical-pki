@@ -1,0 +1,13 @@
+services:
+  pki:
+    build:
+      context: .
+      args:
+        OPENSSL_VERSION: "4.0.0"
+    image: modern-practical-pki:openssl-4.0.0
+    working_dir: /workspace
+    volumes:
+      - ./lab:/workspace/lab
+    stdin_open: true
+    tty: true
+
