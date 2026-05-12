@@ -52,11 +52,24 @@ PowerShell.
 | [Chapter 1](chapters/01-introduction.md) | Introduction | Ready |
 | [Chapter 2](chapters/02-encoding.md) | Encoding | Ready |
 | Chapter 3 | Hashing | Planned |
-| Chapter 4 | Keys and key formats | Planned |
-| Chapter 5 | Certificate signing requests | Planned |
-| Chapter 6 | Certificates | Planned |
-| Chapter 7 | Certificate authorities | Planned |
-| Chapter 8 | Revocation | Planned |
+| Chapter 4 | Random Number Generation | Planned |
+| Chapter 5 | ASN.1 | Planned |
+| Chapter 6 | Public and Private Keys | Planned |
+| Chapter 7 | Certification Authorities | Planned |
+| Chapter 8 | Registration Authorities | Planned |
+| Chapter 9 | Certificates | Planned |
+| Chapter 10 | Certificate Status | Planned |
+| Chapter 11 | Certificate Transparency (CT) | Planned |
+| Chapter 12 | Key Stores | Planned |
+| Chapter 13 | CMS (Cryptographic Message Syntax) | Planned |
+| Chapter 14 | Enrollment Protocols | Planned |
+| Chapter 15 | Cross-Certification | Planned |
+| Chapter 16 | Transport Layer Security (TLS) | Planned |
+| Chapter 17 | S/MIME (Secure MIME) | Planned |
+| Chapter 18 | Time Stamping Authority | Planned |
+| Chapter 19 | Hardware Security Module (HSM) | Planned |
+| Chapter 20 | Trusted Platform Modules (TPM) | Planned |
+| Chapter 21 | Security Requirements for Cryptographic Modules | Planned |
 
 ## Repo Layout
 
