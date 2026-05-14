@@ -19,6 +19,26 @@ A secure random bit generator should make it computationally infeasible to:
 
 In other words, it must resist prediction and pattern-analysis attacks.
 
+## Deterministic and Non-Deterministic Generators
+
+There are two broad categories of random bit generators:
+
+- Deterministic random bit generators.
+- Non-deterministic random bit generators.
+
+A deterministic random bit generator, or DRBG, is an algorithm that produces
+random-looking bits from a seed. The seed comes from a randomness source.
+
+Because the output can be predicted if the seed is known, a DRBG is also called
+a pseudorandom number generator, or PRNG.
+
+A non-deterministic random bit generator is different. In that model, every bit
+comes directly from a randomness source.
+
+The practical idea is simple: if a generator depends on a seed, that seed must
+be strong and secret. If an attacker learns or guesses the seed, the generated
+output may become predictable.
+
 ## From Random Bits to Random Numbers
 
 Random generators usually produce bits or bytes. Applications often need a
@@ -53,4 +73,3 @@ uneven distributions.
 
 Cryptography needs randomness that attackers cannot predict. Random-looking is
 not enough. The random generator must be designed for cryptographic use.
-
