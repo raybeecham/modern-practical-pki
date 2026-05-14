@@ -52,7 +52,7 @@ PowerShell.
 | [Chapter 1](chapters/01-introduction.md) | Introduction | Ready |
 | [Chapter 2](chapters/02-encoding.md) | Encoding | Ready |
 | [Chapter 3](chapters/03-hashing.md) | Hashing | Ready |
-| [Chapter 4](chapters/04-random-number-generation.md) | Random Number Generation | In Progress |
+| [Chapter 4](chapters/04-random-number-generation.md) | Random Number Generation | Ready |
 | Chapter 5 | ASN.1 | Planned |
 | Chapter 6 | Public and Private Keys | Planned |
 | Chapter 7 | Certification Authorities | Planned |
