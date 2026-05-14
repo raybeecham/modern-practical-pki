@@ -51,7 +51,7 @@ PowerShell.
 | --- | --- | --- |
 | [Chapter 1](chapters/01-introduction.md) | Introduction | Ready |
 | [Chapter 2](chapters/02-encoding.md) | Encoding | Ready |
-| Chapter 3 | Hashing | Planned |
+| [Chapter 3](chapters/03-hashing.md) | Hashing | Ready |
 | Chapter 4 | Random Number Generation | Planned |
 | Chapter 5 | ASN.1 | Planned |
 | Chapter 6 | Public and Private Keys | Planned |
