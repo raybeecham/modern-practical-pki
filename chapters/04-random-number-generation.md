@@ -39,6 +39,64 @@ The practical idea is simple: if a generator depends on a seed, that seed must
 be strong and secret. If an attacker learns or guesses the seed, the generated
 output may become predictable.
 
+## Randomness Sources
+
+Entropy is a measure of uncertainty or unpredictability. In this context, it is
+a measure of randomness.
+
+Random bit generators need high-entropy randomness sources. These sources can be
+physical hardware devices or non-physical system data. In either case, the
+source must be tested. Validation tests check whether samples from the source
+are independent and whether their distribution is suitable for cryptographic
+use.
+
+Physical randomness sources include:
+
+- Metastable latches with feedback loops.
+- Ring oscillators.
+
+### Metastable Latches with Feedback Loops
+
+A latch is a basic circuit made from two inverting, or NOT, gates. A normal latch
+settles into one of two stable states:
+
+```text
+0, 1
+```
+
+or:
+
+```text
+1, 0
+```
+
+A latch in a metastable state is temporarily balanced in an undefined state
+between `0` and `1`. Because of thermal noise, the circuit quickly tips into one
+of the stable states. That final state can be used as a random bit.
+
+To generate continuous random bits, a feedback loop forces the latch back into a
+metastable state. This can be done with transistors acting as switches, loading
+both ends of the latch from two capacitors.
+
+The important idea: tiny physical noise affects which stable state the circuit
+falls into.
+
+### Ring Oscillators
+
+A ring oscillator is a circular chain with an odd number of inverting, or NOT,
+gates.
+
+An electrical signal travels around the loop millions of times per second. The
+speed fluctuates because of electrical noise. Those fluctuations can provide an
+unpredictable stream of bits.
+
+Systems commonly use multiple ring oscillators. Their loop lengths should be
+different and mutually prime. That helps prevent the oscillators from lining up
+in a predictable repeating pattern.
+
+The important idea: physical timing noise creates uncertainty that can be
+sampled as random data.
+
 ## From Random Bits to Random Numbers
 
 Random generators usually produce bits or bytes. Applications often need a
