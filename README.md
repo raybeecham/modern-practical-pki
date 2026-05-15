@@ -54,7 +54,7 @@ PowerShell.
 | [Chapter 3](chapters/03-hashing.md) | Hashing | Ready |
 | [Chapter 4](chapters/04-random-number-generation.md) | Random Number Generation | Ready |
 | [Chapter 5](chapters/05-asn1.md) | ASN.1 | Ready |
-| [Chapter 6](chapters/06-public-and-private-keys.md) | Public and Private Keys | In Progress |
+| [Chapter 6](chapters/06-public-and-private-keys.md) | Public and Private Keys | Ready |
 | Chapter 7 | Certification Authorities | Planned |
 | Chapter 8 | Registration Authorities | Planned |
 | Chapter 9 | Certificates | Planned |
