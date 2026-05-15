@@ -10,6 +10,7 @@ RUN apt-get update && \
         curl \
         build-essential \
         make \
+        openssh-client \
         perl \
         pkg-config \
         xxd && \
@@ -40,4 +41,3 @@ COPY scripts/ /workspace/scripts/
 RUN chmod +x /workspace/scripts/*.sh
 
 CMD ["bash"]
-
