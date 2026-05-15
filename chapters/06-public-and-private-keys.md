@@ -51,7 +51,15 @@ is for learning the mechanics. Modern application protocols usually use
 authenticated encryption modes or established libraries instead of raw `enc`
 commands.
 
-Run these inside the container:
+Run these inside the container from `/workspace`:
+
+```bash
+cd /workspace
+```
+
+Most commands in this chapter use paths like `lab/chapter6/message.txt`. If you
+already changed into `lab/chapter6`, use the short filename instead, such as
+`cat ssh-ed25519.pub`.
 
 ```bash
 mkdir -p lab/chapter6
