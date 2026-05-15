@@ -53,7 +53,7 @@ PowerShell.
 | [Chapter 2](chapters/02-encoding.md) | Encoding | Ready |
 | [Chapter 3](chapters/03-hashing.md) | Hashing | Ready |
 | [Chapter 4](chapters/04-random-number-generation.md) | Random Number Generation | Ready |
-| Chapter 5 | ASN.1 | Planned |
+| [Chapter 5](chapters/05-asn1.md) | ASN.1 | In Progress |
 | Chapter 6 | Public and Private Keys | Planned |
 | Chapter 7 | Certification Authorities | Planned |
 | Chapter 8 | Registration Authorities | Planned |
